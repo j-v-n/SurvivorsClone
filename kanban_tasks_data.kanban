@@ -1,0 +1,125 @@
+{
+	"categories": [
+		{
+			"uuid": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"title": "Task",
+			"color": "70bafa"
+		}
+	],
+	"stages": [
+		{
+			"uuid": "ba311589-7882-4248-8653-d653a89d369b",
+			"title": "Todo",
+			"tasks": [
+				"1e1248ff-ba87-47e4-857e-dc87e794d586",
+				"3d1208e8-fec6-4abe-9e80-2a7406bc8e68",
+				"76fa00d5-3eba-4cde-ad66-0f23d858fe7e",
+				"fcc8940e-fda9-45c4-a627-a238a1b058ca",
+				"8fc49a35-0a8e-47eb-aaa3-d12a6c75139a",
+				"4e593cf0-a0a0-49af-8cc2-e202d6f951bc",
+				"ba26e7a9-156c-47c7-9de9-7a9c537e9fd1"
+			]
+		},
+		{
+			"uuid": "24078335-99b0-499c-a2b5-c1ead231f546",
+			"title": "Doing",
+			"tasks": [
+				"bfdc9037-72ee-41ff-b202-6e480c17438f"
+			]
+		},
+		{
+			"uuid": "ec4cdc75-f446-48aa-b7c5-794904cda130",
+			"title": "Done",
+			"tasks": [
+				"e0389a88-2de5-47c6-842c-efdb1d4e7597"
+			]
+		}
+	],
+	"tasks": [
+		{
+			"uuid": "e0389a88-2de5-47c6-842c-efdb1d4e7597",
+			"title": "Base game",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "1e1248ff-ba87-47e4-857e-dc87e794d586",
+			"title": "New enemies",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "bfdc9037-72ee-41ff-b202-6e480c17438f",
+			"title": "New attacks",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": [
+				{
+					"details": "Radius of effect attack\n\n1. Spawn disc around player. Nothing can enter close to the player once the disc is spawned\n2. Spawning should increase scale from 0.01 to 0.5\n3. Collision shape radius should increase accordingly\n4. When timer (i.e. attack timer) runs out. Disc and collision shape should collapse inwards\n5. It should stay collapsed as long as cooldown timer is running. When cooldown timer is stopped, the attack should increase back in size",
+					"done": false
+				},
+				{
+					"details": "Spinning around character in widening circles attack",
+					"done": false
+				}
+			]
+		},
+		{
+			"uuid": "3d1208e8-fec6-4abe-9e80-2a7406bc8e68",
+			"title": "Save system",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "76fa00d5-3eba-4cde-ad66-0f23d858fe7e",
+			"title": "Table of best times?",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "fcc8940e-fda9-45c4-a627-a238a1b058ca",
+			"title": "New upgrades",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "8fc49a35-0a8e-47eb-aaa3-d12a6c75139a",
+			"title": "Random drops",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "4e593cf0-a0a0-49af-8cc2-e202d6f951bc",
+			"title": "Refactor enemy code to use classes",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "ba26e7a9-156c-47c7-9de9-7a9c537e9fd1",
+			"title": "Optimizations",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		}
+	],
+	"layout": {
+		"columns": [
+			[
+				"ba311589-7882-4248-8653-d653a89d369b"
+			],
+			[
+				"24078335-99b0-499c-a2b5-c1ead231f546"
+			],
+			[
+				"ec4cdc75-f446-48aa-b7c5-794904cda130"
+			]
+		]
+	}
+}
