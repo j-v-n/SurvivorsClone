@@ -6,7 +6,6 @@ extends ColorRect
 @onready var itemIcon = $ColorRect/ItemIcon
 
 
-
 var mouse_over = false
 var item = null
 
@@ -15,7 +14,7 @@ var item = null
 signal selected_upgrade(upgrade)
 
 func _ready():
-	connect("selected_upgrade",Callable(player,"upgrade_character"))
+	connect("selected_upgrade", Callable(player, "upgrade_character"))
 	
 	if item == null:
 		item = "food"
@@ -23,11 +22,11 @@ func _ready():
 	labelName.text = UpgradeDb.UPGRADES[item]["displayname"]
 	labelDescription.text = UpgradeDb.UPGRADES[item]["details"]
 	labelLevel.text = UpgradeDb.UPGRADES[item]["level"]
-	if item in ["disc1","disc2","disc3","disc4"]:
-		itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
-		itemIcon.scale = Vector2(0.35,0.35)
-	else:
-		itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+	# if item in ["disc1", "disc2", "disc3", "disc4"]:
+	# 	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+	# 	itemIcon.scale = Vector2(0.5, 0.5)
+	# else:
+	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
 	
 
 func _input(event):

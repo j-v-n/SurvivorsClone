@@ -33,28 +33,28 @@ func update_disc():
 			hp = 999
 			damage = 20
 			knockback_amount = 100
-			attack_size = 1.0 * (1 + player.spell_size)
+			attack_size = 2.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1 + player.spell_cooldown)
 		
 		2:
 			hp = 999
 			damage = 25
 			knockback_amount = 100
-			attack_size = 1.0 * (1 + player.spell_size)
+			attack_size = 2.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1 + player.spell_cooldown)
 		
 		3:
 			hp = 999
 			damage = 30
 			knockback_amount = 120
-			attack_size = 1.0 * (1 + player.spell_size)
+			attack_size = 2.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1 + player.spell_cooldown)
 		
 		4:
 			hp = 999
 			damage = 30
 			knockback_amount = 126
-			attack_size = 1.0 * (1 + player.spell_size)
+			attack_size = 2.0 * (1 + player.spell_size)
 			attack_speed = 5.0 * (1 + player.spell_cooldown)
 	
 	attackTimer.wait_time = attack_speed

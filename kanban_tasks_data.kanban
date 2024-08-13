@@ -58,7 +58,7 @@
 			"steps": [
 				{
 					"details": "Radius of effect attack\n\n1. Spawn disc around player. Nothing can enter close to the player once the disc is spawned\n2. Spawning should increase scale from 0.01 to 0.5\n3. Collision shape radius should increase accordingly\n4. When timer (i.e. attack timer) runs out. Disc and collision shape should collapse inwards\n5. It should stay collapsed as long as cooldown timer is running. When cooldown timer is stopped, the attack should increase back in size",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Spinning around character in widening circles attack",

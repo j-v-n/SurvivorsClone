@@ -100,14 +100,14 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"disc1": {
-		"icon": WEAPON_PATH + "disc.png",
+		"icon": WEAPON_PATH + "spin_disc_v1.png",
 		"displayname": "Disc",
 		"details": "A spinning disc is created below the player and attacks an enemies close to the player",
 		"level": "Level: 1",
 		"prerequisite": [],
 		"type": "weapon"},
 	"disc2": {
-		"icon": WEAPON_PATH + "disc.png",
+		"icon": WEAPON_PATH + "spin_disc_v1.png",
 		"displayname": "Disc",
 		"details": "Damage increases by 25%",
 		"level": "Level: 2",
@@ -115,7 +115,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"disc3": {
-		"icon": WEAPON_PATH + "disc.png",
+		"icon": WEAPON_PATH + "spin_disc_v1.png",
 		"displayname": "Disc",
 		"details": "Additional increase and knockback each by 20%",
 		"level": "Level: 3",
@@ -123,7 +123,7 @@ const UPGRADES = {
 		"type": "weapon"
 	},
 	"disc4": {
-		"icon": WEAPON_PATH + "disc.png",
+		"icon": WEAPON_PATH + "spin_disc_v1.png",
 		"displayname": "Disc",
 		"details": "Additional knockback increase by 5%",
 		"level": "Level: 4",

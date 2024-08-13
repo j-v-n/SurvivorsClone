@@ -1,8 +1,3 @@
-res://Player/Attack/javelin.gd
-res://Player/Attack/javelin.tscn
-res://Utility/spawn_info.gd
-res://Utility/upgrade_db.gd
-res://Player/Attack/spinning_disc.gd
 res://World/world.tscn
 res://Player/player.tscn
 res://Enemy/enemy_kolbold_weak.tscn
@@ -13,8 +8,11 @@ res://Enemy/enemy_super.tscn
 res://Player/Attack/spinning_disc.tscn
 res://Player/Attack/ice_spear.tscn
 res://Utility/hurt_box.tscn
+res://Player/Attack/javelin.tscn
 res://Player/Attack/tornado.tscn
 res://Utility/item_option.tscn
-res://Player/GUI/item_container.gd
-res://Utility/item_option.gd
 res://Player/GUI/item_container.tscn
+res://Player/Attack/spinning_disc.gd
+res://Utility/upgrade_db.gd
+res://Utility/item_option.gd
+res://Player/GUI/item_container.gd

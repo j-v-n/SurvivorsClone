@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Utility/item_option.gd" id="1_i08ou"]
 [ext_resource type="FontFile" uid="uid://bm3i5odnir43l" path="res://Font/tenderness.otf" id="2_7anjc"]
-[ext_resource type="Texture2D" uid="uid://e5od0uowa2hn" path="res://Textures/Items/Weapons/disc.png" id="2_pwq5k"]
+[ext_resource type="Texture2D" uid="uid://dxn35rgn3vloq" path="res://Textures/Items/Weapons/spin_disc_v1.png" id="2_pn2rv"]
 
 [node name="ItemOption" type="ColorRect"]
 custom_minimum_size = Vector2(180, 50)
@@ -34,7 +34,7 @@ offset_bottom = 41.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.35, 0.35)
-texture = ExtResource("2_pwq5k")
+texture = ExtResource("2_pn2rv")
 
 [node name="label_name" type="Label" parent="."]
 layout_mode = 0
