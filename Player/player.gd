@@ -30,12 +30,15 @@ signal playerDeath
 var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
 var javelin = preload("res://Player/Attack/javelin.tscn")
+var spinningDisc = preload("res://Player/Attack/spinning_disc.tscn")
+
 #AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
 @onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
 @onready var tornadoTimer = get_node("%TornadoTimer")
 @onready var tornadoAttackTimer = get_node("%TornadoAttackTimer")
 @onready var javelinBase = get_node("%JavelinBase")
+@onready var discBase  = get_node("%DiscBase")
 
 # Upgrades
 var collected_upgrades = []
@@ -62,6 +65,9 @@ var tornado_level = 0
 var javelin_ammo = 0
 var javelin_level = 0
 
+# Disc
+var disc_level = 0
+
 #Enemy related
 var enemy_close = []
 
@@ -74,7 +80,7 @@ var maxhp = 80
 var time = 0
 
 func _ready():
-	upgrade_character("icespear1")
+	upgrade_character("disc1")
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0,0,0)
@@ -92,6 +98,9 @@ func attack():
 	
 	if javelin_level > 0:
 		spawn_javelin()
+		
+	if disc_level > 0:
+		spawn_disk()
 	
 
 
@@ -181,6 +190,18 @@ func spawn_javelin():
 	for i in get_javelins:
 		if i.has_method("update_javelin"):
 			i.update_javelin()
+
+func spawn_disk():
+	var get_discs = discBase.get_children()
+	if get_discs.size() == 0:
+		var disc_spawn = spinningDisc.instantiate()
+		disc_spawn.global_position = global_position
+		discBase.add_child(disc_spawn)
+		disc_spawn.update_disc()
+	else:
+		for disc in get_discs:
+			disc.update_disc()
+
 
 func get_random_target():
 	if enemy_close.size() > 0:
@@ -291,6 +312,14 @@ func upgrade_character(upgrade):
 			javelin_level = 3
 		"javelin4":
 			javelin_level = 4
+		"disc1":
+			disc_level = 1
+		"disc2":
+			disc_level = 2
+		"disc3":
+			disc_level = 3
+		"disc4":
+			disc_level = 4
 		"armor1","armor2","armor3","armor4":
 			armor += 1
 		"speed1","speed2","speed3","speed4":

@@ -7,8 +7,6 @@
 [ext_resource type="AudioStream" uid="uid://4keen4sp3sgx" path="res://Audio/SoundEffect/enemy_hit.ogg" id="5_eihoy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8x7vt"]
-radius = 6.0
-height = 24.0
 
 [sub_resource type="Animation" id="Animation_8awfp"]
 length = 0.001
@@ -49,10 +47,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb46y"]
-size = Vector2(23, 30)
+size = Vector2(28, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5y27"]
-size = Vector2(18, 26)
+size = Vector2(22, 29)
 
 [node name="enemy_kolbold_strong" type="CharacterBody2D"]
 collision_layer = 5
@@ -69,7 +67,6 @@ texture = ExtResource("2_iu3lu")
 hframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 2)
 shape = SubResource("CapsuleShape2D_8x7vt")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -83,7 +80,6 @@ collision_mask = 4
 hurtBoxType = 1
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_eb46y")
 
 [node name="HitBox" parent="." instance=ExtResource("4_vbpsy")]
@@ -91,7 +87,7 @@ collision_layer = 2
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 modulate = Color(0.0392157, 1, 1, 1)
-position = Vector2(0, 1)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_s5y27")
 debug_color = Color(0.729242, 0.352182, 0.806151, 0.42)
 

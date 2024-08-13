@@ -57,6 +57,7 @@ position = Vector2(1, 1.5)
 shape = SubResource("RectangleShape2D_30vcb")
 
 [node name="Attack" type="Node2D" parent="."]
+show_behind_parent = true
 
 [node name="IceSpearTimer" type="Timer" parent="Attack"]
 unique_name_in_owner = true
@@ -76,6 +77,10 @@ wait_time = 0.2
 
 [node name="JavelinBase" type="Node2D" parent="Attack"]
 unique_name_in_owner = true
+
+[node name="DiscBase" type="Node2D" parent="Attack"]
+unique_name_in_owner = true
+show_behind_parent = true
 
 [node name="EnemyDetectionArea" type="Area2D" parent="."]
 visible = false

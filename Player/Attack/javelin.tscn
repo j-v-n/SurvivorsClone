@@ -39,6 +39,7 @@ autostart = true
 [node name="sound_attack" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_fl3cv")
 
+[connection signal="child_entered_tree" from="AttackTimer" to="." method="_on_attack_timer_child_entered_tree"]
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="ChangeDirection" to="." method="_on_change_direction_timeout"]
 [connection signal="timeout" from="ResetPosTimer" to="." method="_on_reset_pos_timer_timeout"]

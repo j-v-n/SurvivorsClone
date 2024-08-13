@@ -99,6 +99,37 @@ const UPGRADES = {
 		"prerequisite": ["tornado3"],
 		"type": "weapon"
 	},
+	"disc1": {
+		"icon": WEAPON_PATH + "disc.png",
+		"displayname": "Disc",
+		"details": "A spinning disc is created below the player and attacks an enemies close to the player",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"},
+	"disc2": {
+		"icon": WEAPON_PATH + "disc.png",
+		"displayname": "Disc",
+		"details": "Damage increases by 25%",
+		"level": "Level: 2",
+		"prerequisite": ["disc1"],
+		"type": "weapon"
+	},
+	"disc3": {
+		"icon": WEAPON_PATH + "disc.png",
+		"displayname": "Disc",
+		"details": "Additional increase and knockback each by 20%",
+		"level": "Level: 3",
+		"prerequisite": ["disc2"],
+		"type": "weapon"
+	},
+	"disc4": {
+		"icon": WEAPON_PATH + "disc.png",
+		"displayname": "Disc",
+		"details": "Additional knockback increase by 5%",
+		"level": "Level: 4",
+		"prerequisite": ["disc3"],
+		"type": "weapon"
+	},
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",
@@ -252,4 +283,3 @@ const UPGRADES = {
 		"type": "item"
 	}
 }
-

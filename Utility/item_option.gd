@@ -16,12 +16,19 @@ signal selected_upgrade(upgrade)
 
 func _ready():
 	connect("selected_upgrade",Callable(player,"upgrade_character"))
+	
 	if item == null:
 		item = "food"
+		
 	labelName.text = UpgradeDb.UPGRADES[item]["displayname"]
 	labelDescription.text = UpgradeDb.UPGRADES[item]["details"]
 	labelLevel.text = UpgradeDb.UPGRADES[item]["level"]
-	itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+	if item in ["disc1","disc2","disc3","disc4"]:
+		itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+		itemIcon.scale = Vector2(0.35,0.35)
+	else:
+		itemIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+	
 
 func _input(event):
 	if event.is_action("click"):

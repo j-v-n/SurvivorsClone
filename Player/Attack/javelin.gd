@@ -49,31 +49,31 @@ func update_javelin():
 			damage = 10
 			knockback_amount = 100
 			paths = 2
-			attack_size = 1.0* (1 + player.spell_size)
-			attack_speed = 5.0* (1 - player.spell_cooldown)
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1 - player.spell_cooldown)
 		3:
 			hp = 999
 			speed = 200.0
 			damage = 10
 			knockback_amount = 100
 			paths = 3
-			attack_size = 1.0* (1 + player.spell_size)
-			attack_speed = 5.0* (1 - player.spell_cooldown)
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1 - player.spell_cooldown)
 		4:
 			hp = 999
 			speed = 200.0
 			damage = 15
 			knockback_amount = 120
 			paths = 3
-			attack_size = 1.0* (1 + player.spell_size)
-			attack_speed = 5.0* (1 - player.spell_cooldown)
+			attack_size = 1.0 * (1 + player.spell_size)
+			attack_speed = 5.0 * (1 - player.spell_cooldown)
 			
 	scale = Vector2(1.0, 1.0) * attack_size
 	attackTimer.wait_time = attack_speed
 	
 func _physics_process(delta):
 	if target_array.size() > 0:
-		position += angle*speed*delta
+		position += angle * speed * delta
 	else:
 		var player_angle = global_position.direction_to(reset_pos)
 		var distance_dif = global_position - player.global_position
@@ -81,12 +81,12 @@ func _physics_process(delta):
 		if abs(distance_dif.y) > 500 or abs(distance_dif.x) > 500:
 			return_speed = 100
 		
-		position += player_angle*return_speed*delta
+		position += player_angle * return_speed * delta
 		rotation = global_position.direction_to(player.global_position).angle() + deg_to_rad(135)
 
 func add_paths():
 	soundAttack.play()
-	emit_signal("remove_from_array",self)
+	emit_signal("remove_from_array", self)
 	target_array.clear()
 	var counter = 0
 	while counter < paths:
@@ -95,7 +95,7 @@ func add_paths():
 		counter += 1
 	enable_attack(true)
 	target = target_array[0]
-	process_paths() 
+	process_paths()
 
 func process_paths():
 	angle = global_position.direction_to(target)
@@ -106,16 +106,15 @@ func process_paths():
 	tween.play()
 
 	
-	
 func _on_attack_timer_timeout():
 	add_paths()
 
 func enable_attack(atk = true):
 	if atk:
-		collision.call_deferred("set","disabled",false)
+		collision.call_deferred("set", "disabled", false)
 		sprite.texture = spr_jav_atk
 	else:
-		collision.call_deferred("set","disabled", true)
+		collision.call_deferred("set", "disabled", true)
 		sprite.texture = spr_jav_reg
 
 
@@ -126,7 +125,7 @@ func _on_change_direction_timeout():
 			target = target_array[0]
 			process_paths()
 			soundAttack.play()
-			emit_signal("remove_from_array",self)
+			emit_signal("remove_from_array", self)
 		else:
 			changeTimer.stop()
 			attackTimer.start()

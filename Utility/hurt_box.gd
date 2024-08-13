@@ -22,8 +22,8 @@ func _on_area_entered(area):
 						if area.has_signal("remove_from_array"):
 							if not area.is_connected("remove_from_array", Callable(self, "remove_from_list")):
 								area.connect("remove_from_array", Callable(self, "remove_from_list"))
-					else:
-						return
+						else:
+							return
 				2: # DisableHitBox
 					if area.has_method("tempdisable"):
 						area.tempdisable()
@@ -39,7 +39,14 @@ func _on_area_entered(area):
 			emit_signal("hurt", damage, angle, knockback)
 			if area.has_method("enemy_hit"):
 				area.enemy_hit(1)
-
+			
+func check_persistence(delta):
+	for object in self.get_overlapping_areas():
+		if object.has_method("persist"):
+			var damage = object.damage * delta
+			var angle = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT].pick_random()
+			var knockback = object.knockback_amount
+			emit_signal("hurt", damage, angle, knockback)
 
 func remove_from_list(object):
 	if hit_once_array.has(object):
@@ -47,3 +54,6 @@ func remove_from_list(object):
 
 func _on_disable_timer_timeout():
 	collision.call_deferred("set","disabled",false)
+
+func _physics_process(delta):
+	check_persistence(delta)

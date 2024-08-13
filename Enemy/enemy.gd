@@ -42,7 +42,7 @@ func _physics_process(_delta):
 		sprite.flip_h = false
 
 func death():
-	emit_signal("remove_from_array", self)
+	emit_signal("removed_from_array", self)
 	var enemy_death = death_anim.instantiate()
 	enemy_death.scale = sprite.scale
 	enemy_death.global_position = global_position
