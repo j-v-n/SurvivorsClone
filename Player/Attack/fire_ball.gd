@@ -10,7 +10,10 @@ var attack_speed = 4.0
 var target = Vector2.ZERO
 var angle = Vector2.ZERO
 
-
+var time = 0.0
+var rot_speed = 5
+var radius = 30
+var theta = 0
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var attackTimer = get_node("%AttackTimer")
 signal remove_from_array(object)
@@ -56,7 +59,10 @@ func _ready():
 	tween.play()
 
 func _physics_process(delta):
-	position += angle * speed * delta
+	time += delta
+	position = Vector2(
+		sin((time * rot_speed) + deg_to_rad(theta)) * radius,
+		cos((time * rot_speed) + deg_to_rad(theta)) * radius) + player.global_position
 
 func enemy_hit(charge = 1):
 	hp -= charge

@@ -111,11 +111,11 @@ func attack():
 		spawn_disk()
 	
 	if fireball_level > 0:
-		# add way to not immediately spawn next fireball when upgrade is collected
-		if additional_attacks > 1:
-			fireBallTimer.stop()
-		else:
-			spawn_fireballs()
+		# # add way to not immediately spawn next fireball when upgrade is collected
+		# if additional_attacks > 1:
+		# 	fireBallTimer.stop()
+		# else:
+		spawn_fireballs()
 
 
 func _physics_process(delta):
@@ -211,18 +211,20 @@ func spawn_javelin():
 
 func _on_fire_ball_timer_timeout():
 	spawn_fireballs()
+	fireBallTimer.start()
 
 func spawn_fireballs():
 	var get_fireballs_total = fireBase.get_child_count()
 	# fireball_ammo += fireball_baseammo + additional_attacks
 	var calc_spawns = fireball_baseammo + additional_attacks - get_fireballs_total
-	var spawn_positions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
+	var spawn_thetas = [0, 180, 90, 270]
 	while calc_spawns > 0:
 		var fireball_spawn = fireBall.instantiate()
-		var spawn_location = spawn_positions[calc_spawns - 1]
-		# spawn_positions.erase(spawn_location)
-		fireball_spawn.position = global_position + spawn_location * 20
-		fireball_spawn.target = global_position
+		var spawn_theta = spawn_thetas[calc_spawns - 1]
+		spawn_thetas.erase(spawn_theta)
+		fireball_spawn.theta = spawn_theta
+		fireball_spawn.position = global_position + Vector2(sin(deg_to_rad(fireball_spawn.theta) * fireball_spawn.radius), cos(deg_to_rad(fireball_spawn.theta) * fireball_spawn.radius))
+		# fireball_spawn.target = global_position
 		fireball_spawn.level = fireball_level
 		fireBase.add_child(fireball_spawn)
 		calc_spawns -= 1
@@ -360,7 +362,7 @@ func upgrade_character(upgrade):
 			disc_level = 4
 		"fireball1":
 			fireball_level = 1
-			fireball_baseammo += 1
+			fireball_baseammo += 2
 		"fireball2":
 			fireball_level = 2
 		"fireball3":
