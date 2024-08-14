@@ -130,6 +130,38 @@ const UPGRADES = {
 		"prerequisite": ["disc3"],
 		"type": "weapon"
 	},
+	"fireball1": {
+		"icon": WEAPON_PATH + "fireball_v1.png",
+		"displayname": "Fire Ball",
+		"details": "Spawns a fire ball!",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "weapon"
+	},
+	"fireball2": {
+		"icon": WEAPON_PATH + "fireball_v1.png",
+		"displayname": "Fire Ball",
+		"details": "Increases damage by 33%",
+		"level": "Level: 2",
+		"prerequisite": ["fireball1"],
+		"type": "weapon"
+	},
+	"fireball3": {
+		"icon": WEAPON_PATH + "fireball_v1.png",
+		"displayname": "Fire Ball",
+		"details": "Increases speed of fireballs by 33%",
+		"level": "Level: 3",
+		"prerequisite": ["fireball2"],
+		"type": "weapon"
+	},
+	"fireball4": {
+		"icon": WEAPON_PATH + "fireball_v1.png",
+		"displayname": "Fire Ball",
+		"details": "Further increases speed by 33%, and the damage by 25%",
+		"level": "Level: 4",
+		"prerequisite": ["fireball3"],
+		"type": "weapon"
+	},
 	"armor1": {
 		"icon": ICON_PATH + "helmet_1.png",
 		"displayname": "Armor",

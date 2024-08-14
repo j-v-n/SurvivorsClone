@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c48n7odegnr83"]
+
+[ext_resource type="Script" path="res://Player/Attack/fire_ball.gd" id="1_b6ik2"]
+[ext_resource type="Texture2D" uid="uid://cu7sno41q4hq2" path="res://Textures/Items/Weapons/fireball_v1.png" id="2_6lltq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2fxcu"]
+radius = 28.0
+
+[node name="fire_ball" type="Area2D" groups=["attack"]]
+top_level = true
+scale = Vector2(0.25, 0.25)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_b6ik2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_6lltq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2fxcu")
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

@@ -23,15 +23,14 @@
 		{
 			"uuid": "24078335-99b0-499c-a2b5-c1ead231f546",
 			"title": "Doing",
-			"tasks": [
-				"bfdc9037-72ee-41ff-b202-6e480c17438f"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "ec4cdc75-f446-48aa-b7c5-794904cda130",
 			"title": "Done",
 			"tasks": [
-				"e0389a88-2de5-47c6-842c-efdb1d4e7597"
+				"e0389a88-2de5-47c6-842c-efdb1d4e7597",
+				"bfdc9037-72ee-41ff-b202-6e480c17438f"
 			]
 		}
 	],
@@ -61,8 +60,8 @@
 					"done": true
 				},
 				{
-					"details": "Spinning around character in widening circles attack",
-					"done": false
+					"details": "Spinning around character in widening circles attack\n1. Make the weapon instances spawn procedurally around the character\n2. Start with 2-> vertically up and down \n3. For every upgrade -> add one extra (0 and 180)\n4. Make asset",
+					"done": true
 				}
 			]
 		},

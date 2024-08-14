@@ -31,15 +31,17 @@ var iceSpear = preload("res://Player/Attack/ice_spear.tscn")
 var tornado = preload("res://Player/Attack/tornado.tscn")
 var javelin = preload("res://Player/Attack/javelin.tscn")
 var spinningDisc = preload("res://Player/Attack/spinning_disc.tscn")
-
+var fireBall = preload("res://Player/Attack/fire_ball.tscn")
 #AttackNodes
 @onready var iceSpearTimer = get_node("%IceSpearTimer")
 @onready var iceSpearAttackTimer = get_node("%IceSpearAttackTimer")
 @onready var tornadoTimer = get_node("%TornadoTimer")
 @onready var tornadoAttackTimer = get_node("%TornadoAttackTimer")
+@onready var fireBallTimer = get_node("%FireBallTimer")
+@onready var fireBallWaitTimer = get_node("%FireBallWaitTimer")
 @onready var javelinBase = get_node("%JavelinBase")
-@onready var discBase  = get_node("%DiscBase")
-
+@onready var discBase = get_node("%DiscBase")
+@onready var fireBase = get_node("%FireBallBase")
 # Upgrades
 var collected_upgrades = []
 var upgrade_options = []
@@ -68,6 +70,12 @@ var javelin_level = 0
 # Disc
 var disc_level = 0
 
+# Fireball
+var fireball_level = 0
+var fireball_ammo = 0
+var fireball_baseammo = 0
+var fireball_attackspeed = 1.5
+
 #Enemy related
 var enemy_close = []
 
@@ -80,19 +88,19 @@ var maxhp = 80
 var time = 0
 
 func _ready():
-	upgrade_character("disc1")
+	upgrade_character("fireball1")
 	attack()
 	set_expbar(experience, calculate_experience_cap())
-	_on_hurt_box_hurt(0,0,0)
+	_on_hurt_box_hurt(0, 0, 0)
 	
 func attack():
 	if icespear_level > 0:
-		iceSpearTimer.wait_time = icespear_attackspeed * (1-spell_cooldown)
+		iceSpearTimer.wait_time = icespear_attackspeed * (1 - spell_cooldown)
 		if iceSpearTimer.is_stopped():
 			iceSpearTimer.start()
 	
 	if tornado_level > 0:
-		tornadoTimer.wait_time = tornado_attackspeed * (1-spell_cooldown)
+		tornadoTimer.wait_time = tornado_attackspeed * (1 - spell_cooldown)
 		if tornadoTimer.is_stopped():
 			tornadoTimer.start()
 	
@@ -102,6 +110,12 @@ func attack():
 	if disc_level > 0:
 		spawn_disk()
 	
+	if fireball_level > 0:
+		# add way to not immediately spawn next fireball when upgrade is collected
+		if additional_attacks > 1:
+			fireBallTimer.stop()
+		else:
+			spawn_fireballs()
 
 
 func _physics_process(delta):
@@ -119,21 +133,21 @@ func movement():
 	elif mov.x < 0:
 		sprite.flip_h = false
 		
-	if mov!= Vector2.ZERO:
+	if mov != Vector2.ZERO:
 		last_movement = mov
 		if walkTimer.is_stopped():
-			if sprite.frame>= sprite.hframes - 1:
+			if sprite.frame >= sprite.hframes - 1:
 				sprite.frame = 0
 			else:
 				sprite.frame = 1
 			walkTimer.start()
 		
-	velocity = mov.normalized()*movement_speed
+	velocity = mov.normalized() * movement_speed
 	# now do move and slide
 	move_and_slide()
 
 func _on_hurt_box_hurt(damage, _angle, _knockback):
-	hp -= clamp(damage-armor,1.0, 999.0)
+	hp -= clamp(damage - armor, 1.0, 999.0)
 	healthBar.max_value = maxhp
 	healthBar.value = hp
 	if hp <= 0:
@@ -180,7 +194,7 @@ func spawn_javelin():
 	var get_javelin_total = javelinBase.get_child_count()
 	var calc_spawns = javelin_ammo + additional_attacks - get_javelin_total
 	
-	while calc_spawns>0:
+	while calc_spawns > 0:
 		var javelin_spawn = javelin.instantiate()
 		javelin_spawn.global_position = global_position
 		javelinBase.add_child(javelin_spawn)
@@ -190,6 +204,30 @@ func spawn_javelin():
 	for i in get_javelins:
 		if i.has_method("update_javelin"):
 			i.update_javelin()
+
+# func _on_fire_ball_wait_timer_timeout():
+# 	pass # Replace with function body.
+
+
+func _on_fire_ball_timer_timeout():
+	spawn_fireballs()
+
+func spawn_fireballs():
+	var get_fireballs_total = fireBase.get_child_count()
+	# fireball_ammo += fireball_baseammo + additional_attacks
+	var calc_spawns = fireball_baseammo + additional_attacks - get_fireballs_total
+	var spawn_positions = [Vector2.UP, Vector2.DOWN, Vector2.RIGHT, Vector2.LEFT]
+	while calc_spawns > 0:
+		var fireball_spawn = fireBall.instantiate()
+		var spawn_location = spawn_positions[calc_spawns - 1]
+		# spawn_positions.erase(spawn_location)
+		fireball_spawn.position = global_position + spawn_location * 20
+		fireball_spawn.target = global_position
+		fireball_spawn.level = fireball_level
+		fireBase.add_child(fireball_spawn)
+		calc_spawns -= 1
+	if fireBallTimer.is_stopped():
+			fireBallTimer.start()
 
 func spawn_disk():
 	var get_discs = discBase.get_children()
@@ -232,7 +270,7 @@ func _on_collect_area_area_entered(area):
 
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experience_cap()
-	collected_experience += gem_exp 
+	collected_experience += gem_exp
 	# level up
 	if experience + collected_experience >= exp_required:
 		collected_experience -= exp_required - experience
@@ -253,18 +291,18 @@ func calculate_experience_cap():
 	if experience_level < 20:
 		exp_cap = experience_level * 5
 	elif experience_level < 40:
-		exp_cap = 95 + (experience_level-19)*8
+		exp_cap = 95 + (experience_level - 19) * 8
 	else:
-		exp_cap = 255 + (experience_level-39) * 12
+		exp_cap = 255 + (experience_level - 39) * 12
 	return exp_cap
 
-func set_expbar(set_value=1, set_max_value = 100):
+func set_expbar(set_value = 1, set_max_value = 100):
 	expBar.value = set_value
 	expBar.max_value = set_max_value
 
 func levelup():
 	sound_levelup.play()
-	label_level.text = str("Level: ",experience_level)
+	label_level.text = str("Level: ", experience_level)
 	var tween = levelPanel.create_tween()
 	tween.tween_property(levelPanel, "position", Vector2(220, 50), 0.2).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.play()
@@ -320,19 +358,28 @@ func upgrade_character(upgrade):
 			disc_level = 3
 		"disc4":
 			disc_level = 4
-		"armor1","armor2","armor3","armor4":
+		"fireball1":
+			fireball_level = 1
+			fireball_baseammo += 1
+		"fireball2":
+			fireball_level = 2
+		"fireball3":
+			fireball_level = 3
+		"fireball4":
+			fireball_level = 4
+		"armor1", "armor2", "armor3", "armor4":
 			armor += 1
-		"speed1","speed2","speed3","speed4":
+		"speed1", "speed2", "speed3", "speed4":
 			movement_speed += 20.0
-		"tome1","tome2","tome3","tome4":
+		"tome1", "tome2", "tome3", "tome4":
 			spell_size += 0.10
-		"scroll1","scroll2","scroll3","scroll4":
+		"scroll1", "scroll2", "scroll3", "scroll4":
 			spell_cooldown += 0.05
-		"ring1","ring2":
+		"ring1", "ring2":
 			additional_attacks += 1
 		"food":
 			hp += 20
-			hp = clamp(hp,0,maxhp)
+			hp = clamp(hp, 0, maxhp)
 		
 	adjust_gui_collection(upgrade)
 	attack()
@@ -342,7 +389,7 @@ func upgrade_character(upgrade):
 	upgrade_options.clear()
 	collected_upgrades.append(upgrade)
 	levelPanel.visible = false
-	levelPanel.position  = Vector2(800, 50)
+	levelPanel.position = Vector2(800, 50)
 	get_tree().paused = false
 	calculate_experience(0)
 
@@ -372,9 +419,9 @@ func get_random_item():
 	else:
 		return null
 
-func change_time(argtime :int = 0) -> void:
+func change_time(argtime: int = 0) -> void:
 	time = argtime
-	var get_m = int(time/60.0)
+	var get_m = int(time / 60.0)
 	var get_s = time % 60
 	if get_m < 10: # ensuring 2 digits
 		get_m = str(0, get_m)
@@ -403,7 +450,7 @@ func death():
 	emit_signal("playerDeath")
 	get_tree().paused = true
 	var tween = deathPanel.create_tween()
-	tween.tween_property(deathPanel,"position",Vector2(220,50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
+	tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
 	
 	if time >= 300:
@@ -413,7 +460,6 @@ func death():
 		labelResult.text = "You Lose!"
 		soundLose.play()
 		
-
 
 func _on_button_menu_click_end():
 	get_tree().paused = false
