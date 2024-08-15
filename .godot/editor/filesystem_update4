@@ -13,3 +13,6 @@ res://Player/player.gd
 res://Enemy/enemy_juggernaut.tscn
 res://Enemy/enemy_cyclops.tscn
 res://Enemy/enemy_kolbold_strong.tscn
+res://Objects/orb.gd
+res://Objects/orb.tscn
+res://Utility/enemy_spawner.gd

@@ -1,9 +1,9 @@
+Timer
 AudioStreamPlayer
 CollisionShape2D
 Sprite2D
 Area2D
 Node2D
-Timer
 AnimationPlayer
 Button
 Label

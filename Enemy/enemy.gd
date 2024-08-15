@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var experience = 1
 @export var enemy_damage = 1
 @export var gem_weight = 1.0
-@export var orb_weight = 0
+@export var orb_weight = 0.1
 @export var food_weight = 0.1
 
 var object_types = {
@@ -31,6 +31,7 @@ var knockback = Vector2.ZERO
 var death_anim = preload("res://Enemy/explosion.tscn")
 var exp_gem = preload("res://Objects/experience_gem.tscn")
 var food_loot = preload("res://Objects/food_loot.tscn")
+var orb = preload("res://Objects/orb.tscn")
 
 signal remove_from_array(object)
 
@@ -71,7 +72,9 @@ func death():
 		new_gem.experience = experience
 		loot_base.call_deferred("add_child", new_gem)
 	elif loot == "orb":
-		pass
+		var new_orb = orb.instantiate()
+		new_orb.global_position = global_position
+		loot_base.call_deferred("add_child", new_orb)
 	else:
 		var new_food = food_loot.instantiate()
 		new_food.global_position = global_position

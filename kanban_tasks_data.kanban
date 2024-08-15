@@ -104,7 +104,7 @@
 			"steps": [
 				{
 					"details": "Food",
-					"done": false
+					"done": true
 				},
 				{
 					"details": "Ultimate orb",

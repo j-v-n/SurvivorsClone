@@ -23,6 +23,8 @@ extends CharacterBody2D
 @onready var labelResult = get_node("%label_Result")
 @onready var soundVictory = get_node("%sound_victory")
 @onready var soundLose = get_node("%sound_lose")
+
+@onready var grabAreaCollision = get_node("%GrabAreaCollision")
 #signal
 signal playerDeath
 
@@ -273,6 +275,17 @@ func _on_collect_area_area_entered(area):
 		elif area.has_method("increase_hp"):
 			var food_hp = area.collect()
 			calculate_hp(food_hp)
+		else:
+			area.collect()
+			expand_grabarea()
+			area.grabTimer.start()
+
+func expand_grabarea():
+	grabAreaCollision.shape.radius = 500
+	
+func reduce_grabarea():
+	grabAreaCollision.shape.radius = 50
+
 
 func calculate_experience(gem_exp):
 	var exp_required = calculate_experience_cap()

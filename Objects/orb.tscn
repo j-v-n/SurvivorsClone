@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://corcvg22dyuit"]
+
+[ext_resource type="Texture2D" uid="uid://b13hl7573xg8c" path="res://Textures/Items/Upgrades/orb.png" id="1_s3c0d"]
+[ext_resource type="Script" path="res://Objects/orb.gd" id="1_u3ygj"]
+[ext_resource type="AudioStream" uid="uid://8s40bc8gryg3" path="res://Audio/SoundEffect/collectgem.mp3" id="2_20rl6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0f0jc"]
+radius = 14.0
+
+[node name="orb" type="Area2D" groups=["loot"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_u3ygj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
+texture = ExtResource("1_s3c0d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_0f0jc")
+
+[node name="sound_collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_20rl6")
+volume_db = -10.0
+
+[node name="GrabTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="GrabTimer" to="." method="_on_grab_timer_timeout"]

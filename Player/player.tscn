@@ -108,7 +108,8 @@ shape = SubResource("CircleShape2D_0jf1i")
 collision_layer = 0
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+[node name="GrabAreaCollision" type="CollisionShape2D" parent="GrabArea"]
+unique_name_in_owner = true
 shape = SubResource("CircleShape2D_j5tif")
 
 [node name="CollectArea" type="Area2D" parent="."]
