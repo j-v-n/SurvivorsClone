@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbs10r66dvgbi"]
+
+[ext_resource type="Texture2D" uid="uid://dg1miy6xqlwj1" path="res://Textures/Items/Upgrades/chunk.png" id="1_b52oq"]
+[ext_resource type="Script" path="res://Objects/food_loot.gd" id="1_ubdll"]
+[ext_resource type="AudioStream" uid="uid://8s40bc8gryg3" path="res://Audio/SoundEffect/collectgem.mp3" id="3_8si3r"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bwy6l"]
+radius = 16.0
+
+[node name="food_loot" type="Area2D" groups=["loot"]]
+scale = Vector2(0.5, 0.5)
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_ubdll")
+health_points = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b52oq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_bwy6l")
+
+[node name="sound_collected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_8si3r")
+volume_db = -10.0
+
+[connection signal="finished" from="sound_collected" to="." method="_on_sound_collected_finished"]

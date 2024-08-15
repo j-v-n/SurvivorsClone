@@ -63,6 +63,7 @@ hp = 300
 knockback_recovery = 20.0
 experience = 100
 enemy_damage = 8
+food_weight = 0.15
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

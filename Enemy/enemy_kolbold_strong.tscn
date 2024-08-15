@@ -60,6 +60,7 @@ script = ExtResource("1_kltqa")
 movement_speed = 28.0
 hp = 20
 enemy_damage = 2
+food_weight = 0.12
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
