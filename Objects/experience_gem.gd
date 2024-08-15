@@ -30,11 +30,11 @@ func collect():
 	sound.play()
 	collision.call_deferred("set", "disabled", true)
 	sprite.visible = false
-	var xp = increase_exp()
-	return xp
+	# var xp = increase_exp()
+	return experience
 	
 func increase_exp():
-	return experience
+	pass
 
 func _on_sound_collected_finished():
 	queue_free()
