@@ -2,8 +2,23 @@
 	"categories": [
 		{
 			"uuid": "28f9566c-d020-4312-876a-b5e9b5443133",
-			"title": "Task",
+			"title": "New items",
 			"color": "70bafa"
+		},
+		{
+			"uuid": "fa53b808-bc8d-4ec6-80b3-d963949250d4",
+			"title": "New systems",
+			"color": "2ae188"
+		},
+		{
+			"uuid": "cfc36235-a312-4842-a947-6bed9bf6b2fa",
+			"title": "Refactoring",
+			"color": "ed01d1"
+		},
+		{
+			"uuid": "8c93d7cc-bb8e-4f68-9aa3-9fb3c40eb539",
+			"title": "Bug Fixes",
+			"color": "d31c2e"
 		}
 	],
 	"stages": [
@@ -15,23 +30,25 @@
 				"3d1208e8-fec6-4abe-9e80-2a7406bc8e68",
 				"76fa00d5-3eba-4cde-ad66-0f23d858fe7e",
 				"4e593cf0-a0a0-49af-8cc2-e202d6f951bc",
-				"ba26e7a9-156c-47c7-9de9-7a9c537e9fd1"
+				"ba26e7a9-156c-47c7-9de9-7a9c537e9fd1",
+				"f5533366-3ae9-4c44-bf46-36ca86665c6b",
+				"c23b5aa0-b38d-4069-870e-5457e452fe73",
+				"b82af5c9-b01d-4fcc-b4ad-94cec79b6480"
 			]
 		},
 		{
 			"uuid": "24078335-99b0-499c-a2b5-c1ead231f546",
 			"title": "Doing",
-			"tasks": [
-				"8fc49a35-0a8e-47eb-aaa3-d12a6c75139a",
-				"fcc8940e-fda9-45c4-a627-a238a1b058ca"
-			]
+			"tasks": []
 		},
 		{
 			"uuid": "ec4cdc75-f446-48aa-b7c5-794904cda130",
 			"title": "Done",
 			"tasks": [
 				"e0389a88-2de5-47c6-842c-efdb1d4e7597",
-				"bfdc9037-72ee-41ff-b202-6e480c17438f"
+				"bfdc9037-72ee-41ff-b202-6e480c17438f",
+				"8fc49a35-0a8e-47eb-aaa3-d12a6c75139a",
+				"fcc8940e-fda9-45c4-a627-a238a1b058ca"
 			]
 		}
 	],
@@ -70,14 +87,14 @@
 			"uuid": "3d1208e8-fec6-4abe-9e80-2a7406bc8e68",
 			"title": "Save system",
 			"description": "",
-			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"category": "fa53b808-bc8d-4ec6-80b3-d963949250d4",
 			"steps": []
 		},
 		{
 			"uuid": "76fa00d5-3eba-4cde-ad66-0f23d858fe7e",
 			"title": "Table of best times?",
 			"description": "",
-			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"category": "fa53b808-bc8d-4ec6-80b3-d963949250d4",
 			"steps": []
 		},
 		{
@@ -87,12 +104,8 @@
 			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
 			"steps": [
 				{
-					"details": "Disable collision every x minutes for y seconds",
-					"done": false
-				},
-				{
-					"details": "Increase pickup radius",
-					"done": false
+					"details": "Disable collision every x minutes for y seconds. \nItem should be a cloak of invisibility? Adjust sprite alpha when the clock comes on?",
+					"done": true
 				}
 			]
 		},
@@ -108,7 +121,7 @@
 				},
 				{
 					"details": "Ultimate orb",
-					"done": false
+					"done": true
 				}
 			]
 		},
@@ -116,12 +129,33 @@
 			"uuid": "4e593cf0-a0a0-49af-8cc2-e202d6f951bc",
 			"title": "Refactor enemy code to use classes",
 			"description": "",
-			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"category": "cfc36235-a312-4842-a947-6bed9bf6b2fa",
 			"steps": []
 		},
 		{
 			"uuid": "ba26e7a9-156c-47c7-9de9-7a9c537e9fd1",
 			"title": "Optimizations",
+			"description": "",
+			"category": "cfc36235-a312-4842-a947-6bed9bf6b2fa",
+			"steps": []
+		},
+		{
+			"uuid": "f5533366-3ae9-4c44-bf46-36ca86665c6b",
+			"title": "Scene Transitions",
+			"description": "",
+			"category": "fa53b808-bc8d-4ec6-80b3-d963949250d4",
+			"steps": []
+		},
+		{
+			"uuid": "c23b5aa0-b38d-4069-870e-5457e452fe73",
+			"title": "Implementing particle effects during movement",
+			"description": "",
+			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
+			"steps": []
+		},
+		{
+			"uuid": "b82af5c9-b01d-4fcc-b4ad-94cec79b6480",
+			"title": "Update Menu",
 			"description": "",
 			"category": "28f9566c-d020-4312-876a-b5e9b5443133",
 			"steps": []

@@ -18,12 +18,13 @@ extends CharacterBody2D
 @onready var collectedWeapons = get_node("%CollectedWeapons")
 @onready var collectedUpgrades = get_node("%CollectedUpgrades")
 @onready var itemContainer = preload("res://Player/GUI/item_container.tscn")
-
+@onready var invincibilityTimer = get_node("%InvincibilityTimer")
+@onready var invincibilityCooldown = get_node("%InvincibilityCooldown")
 @onready var deathPanel = get_node("%DeathPanel")
 @onready var labelResult = get_node("%label_Result")
 @onready var soundVictory = get_node("%sound_victory")
 @onready var soundLose = get_node("%sound_lose")
-
+@onready var playerCollision = get_node("%PlayerCollision")
 @onready var grabAreaCollision = get_node("%GrabAreaCollision")
 #signal
 signal playerDeath
@@ -52,7 +53,8 @@ var speed = 0
 var spell_cooldown = 0
 var spell_size = 0
 var additional_attacks = 0
-
+var invincibility_time = 0
+var invincibility_cooldown = 0
 # IceSpear
 var icespear_ammo = 0
 var icespear_baseammo = 0
@@ -404,10 +406,16 @@ func upgrade_character(upgrade):
 			spell_cooldown += 0.05
 		"ring1", "ring2":
 			additional_attacks += 1
+		"cloak1":
+			invincibility_time = 3
+			invincibility_cooldown = 15
 		"food":
 			hp += 20
 			hp = clamp(hp, 0, maxhp)
-		
+	
+	if upgrade == "cloak1":
+		invincible()
+
 	adjust_gui_collection(upgrade)
 	attack()
 	var option_children = upgradeOptions.get_children()
@@ -419,6 +427,22 @@ func upgrade_character(upgrade):
 	levelPanel.position = Vector2(800, 50)
 	get_tree().paused = false
 	calculate_experience(0)
+
+func invincible():
+	invincibilityTimer.wait_time = invincibility_time
+	invincibilityCooldown.wait_time = invincibility_cooldown
+	playerCollision.call_deferred("set", "disabled", true)
+	sprite.self_modulate.a = 0.5
+	invincibilityTimer.start()
+
+func _on_invincibility_timer_timeout():
+	playerCollision.call_deferred("set", "disabled", false)
+	sprite.self_modulate.a = 1
+	invincibilityCooldown.start()
+
+func _on_invincibility_cooldown_timeout():
+	invincible()
+
 
 func get_random_item():
 	var dblist = []

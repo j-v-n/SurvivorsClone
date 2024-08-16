@@ -306,6 +306,14 @@ const UPGRADES = {
 		"prerequisite": ["ring1"],
 		"type": "upgrade"
 	},
+	"cloak1": {
+		"icon": ICON_PATH + "cloak.png",
+		"displayname": "Old Cloak",
+		"details": "Briefly grants invincibility",
+		"level": "Level: 1",
+		"prerequisite": [],
+		"type": "upgrade"
+	},
 	"food": {
 		"icon": ICON_PATH + "chunk.png",
 		"displayname": "Food",
