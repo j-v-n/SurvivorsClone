@@ -1,6 +1,10 @@
-res://Player/player.gd
-res://Utility/upgrade_db.gd
-res://Player/player.tscn
+res://Enemy/enemy.gd
+res://Enemy/enemy_golem.tscn
+res://World/world.tscn
 res://Objects/orb.tscn
 res://Objects/experience_gem.tscn
 res://Utility/upgrade_db.tscn
+res://Player/player.tscn
+res://Enemy/enemy_juggernaut.tscn
+res://Utility/enemy_spawner.tscn
+res://Enemy/enemy_kolbold_weak.tscn

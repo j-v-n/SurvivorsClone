@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cojrkihoexmr"]
+[gd_scene load_steps=23 format=3 uid="uid://cojrkihoexmr"]
 
 [ext_resource type="Texture2D" uid="uid://b58r8080t7g3g" path="res://Textures/dirt_full_new.png" id="1_dfaj6"]
 [ext_resource type="PackedScene" uid="uid://cmqxl1bbh5aan" path="res://Player/player.tscn" id="2_hoq2v"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bi0lg8nbltkma" path="res://Enemy/enemy_kolbold_strong.tscn" id="6_mqqta"]
 [ext_resource type="PackedScene" uid="uid://dkx7ubrdnigjq" path="res://Enemy/enemy_cyclops.tscn" id="7_sqhqh"]
 [ext_resource type="PackedScene" uid="uid://r22g8ot8ro6f" path="res://Enemy/enemy_juggernaut.tscn" id="8_0w8yp"]
+[ext_resource type="PackedScene" uid="uid://1ol7tjfmk2ki" path="res://Enemy/enemy_golem.tscn" id="9_rpave"]
 [ext_resource type="PackedScene" uid="uid://c22w8d85ggxs" path="res://Enemy/enemy_super.tscn" id="9_x066e"]
 [ext_resource type="AudioStream" uid="uid://c81ctbmme8yb" path="res://Audio/Music/battleThemeA.mp3" id="11_akvli"]
 [ext_resource type="Script" path="res://Audio/Music/sound_music.gd" id="12_pfcvw"]
@@ -76,6 +77,14 @@ enemy = ExtResource("6_mqqta")
 enemy_num = 4
 enemy_spawn_delay = 0
 
+[sub_resource type="Resource" id="Resource_30f11"]
+script = ExtResource("5_uksl5")
+time_start = 270
+time_end = 270
+enemy = ExtResource("9_rpave")
+enemy_num = 1
+enemy_spawn_delay = 0
+
 [sub_resource type="Resource" id="Resource_1bthp"]
 script = ExtResource("5_uksl5")
 time_start = 300
@@ -96,7 +105,7 @@ region_rect = Rect2(-4000, -4000, 4000, 4000)
 [node name="Player" parent="." instance=ExtResource("2_hoq2v")]
 
 [node name="enemySpawner" parent="." instance=ExtResource("3_fio4u")]
-spawns = Array[ExtResource("5_uksl5")]([SubResource("Resource_tjegf"), SubResource("Resource_xynrt"), SubResource("Resource_q0a1s"), SubResource("Resource_ravxl"), SubResource("Resource_5psfu"), SubResource("Resource_i5bwo"), SubResource("Resource_ch075"), SubResource("Resource_wl8xw"), SubResource("Resource_1bthp")])
+spawns = Array[ExtResource("5_uksl5")]([SubResource("Resource_tjegf"), SubResource("Resource_xynrt"), SubResource("Resource_q0a1s"), SubResource("Resource_ravxl"), SubResource("Resource_5psfu"), SubResource("Resource_i5bwo"), SubResource("Resource_ch075"), SubResource("Resource_wl8xw"), SubResource("Resource_30f11"), SubResource("Resource_1bthp")])
 
 [node name="Loot" type="Node2D" parent="." groups=["loot"]]
 
