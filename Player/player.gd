@@ -26,6 +26,7 @@ extends CharacterBody2D
 @onready var soundLose = get_node("%sound_lose")
 @onready var playerCollision = get_node("%PlayerCollision")
 @onready var grabAreaCollision = get_node("%GrabAreaCollision")
+@onready var dustParticles: CPUParticles2D = get_node("%Dust")
 #signal
 signal playerDeath
 
@@ -92,6 +93,8 @@ var maxhp = 80
 var time = 0
 
 func _ready():
+	dustParticles.emitting = false
+	dustParticles.global_position = global_position + Vector2(0, 10)
 	upgrade_character("fireball1")
 	attack()
 	set_expbar(experience, calculate_experience_cap())
@@ -125,6 +128,8 @@ func attack():
 func _physics_process(delta):
 	# every single frame
 	movement()
+	dustParticles.global_position = global_position + Vector2(0, 15)
+	
 
 func movement():
 	var x_mov = Input.get_action_strength("right") - Input.get_action_strength("left")
@@ -133,11 +138,20 @@ func movement():
 	
 	#flip sprite based on direction of movement
 	if mov.x > 0:
+		# dustParticles.emitting = false
 		sprite.flip_h = true
+		dustParticles.gravity = Vector2(-200, 10)
 	elif mov.x < 0:
 		sprite.flip_h = false
-		
+		dustParticles.gravity = Vector2(200, 10)
+	elif mov.x == 0:
+		if mov.y > 0:
+			dustParticles.gravity = Vector2(0, -10)
+		if mov.y < 0:
+			dustParticles.gravity = Vector2(0, 10)
+
 	if mov != Vector2.ZERO:
+		dustParticles.emitting = true
 		last_movement = mov
 		if walkTimer.is_stopped():
 			if sprite.frame >= sprite.hframes - 1:
@@ -145,6 +159,8 @@ func movement():
 			else:
 				sprite.frame = 1
 			walkTimer.start()
+	else:
+		dustParticles.emitting = false
 		
 	velocity = mov.normalized() * movement_speed
 	# now do move and slide

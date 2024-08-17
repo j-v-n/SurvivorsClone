@@ -30,7 +30,6 @@
 				"76fa00d5-3eba-4cde-ad66-0f23d858fe7e",
 				"ba26e7a9-156c-47c7-9de9-7a9c537e9fd1",
 				"f5533366-3ae9-4c44-bf46-36ca86665c6b",
-				"c23b5aa0-b38d-4069-870e-5457e452fe73",
 				"b82af5c9-b01d-4fcc-b4ad-94cec79b6480"
 			]
 		},
@@ -38,7 +37,7 @@
 			"uuid": "24078335-99b0-499c-a2b5-c1ead231f546",
 			"title": "Doing",
 			"tasks": [
-				"4e593cf0-a0a0-49af-8cc2-e202d6f951bc"
+				"c23b5aa0-b38d-4069-870e-5457e452fe73"
 			]
 		},
 		{
@@ -50,6 +49,13 @@
 				"8fc49a35-0a8e-47eb-aaa3-d12a6c75139a",
 				"fcc8940e-fda9-45c4-a627-a238a1b058ca",
 				"1e1248ff-ba87-47e4-857e-dc87e794d586"
+			]
+		},
+		{
+			"uuid": "f3ce6c61-92dc-4d5b-9962-9112407f0068",
+			"title": "Cancelled",
+			"tasks": [
+				"4e593cf0-a0a0-49af-8cc2-e202d6f951bc"
 			]
 		}
 	],
@@ -177,6 +183,9 @@
 			],
 			[
 				"ec4cdc75-f446-48aa-b7c5-794904cda130"
+			],
+			[
+				"f3ce6c61-92dc-4d5b-9962-9112407f0068"
 			]
 		]
 	}

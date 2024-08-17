@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cmqxl1bbh5aan"]
+[gd_scene load_steps=19 format=3 uid="uid://cmqxl1bbh5aan"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_7od70"]
 [ext_resource type="Texture2D" uid="uid://cn78vqpt15bmy" path="res://Textures/Player/player_sprite.png" id="1_tncmp"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://5bobfiyfu2nd" path="res://Audio/SoundEffect/Victory.wav" id="10_4g3wj"]
 [ext_resource type="AudioStream" uid="uid://cf5v715jerucv" path="res://Audio/SoundEffect/Lose.ogg" id="11_kj44m"]
 [ext_resource type="PackedScene" uid="uid://lynlxyffijqg" path="res://Utility/basic_button.tscn" id="12_p667h"]
+[ext_resource type="PackedScene" uid="uid://brouxgg7igg7n" path="res://Particles/dust.tscn" id="13_4wif5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1byp1"]
 radius = 4.0
@@ -32,6 +33,8 @@ radius = 14.21
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
 script = ExtResource("1_7od70")
+
+[node name="Dust" parent="." instance=ExtResource("13_4wif5")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

@@ -26,7 +26,7 @@ func _ready():
 
 func update_disc():
 	level = player.disc_level
-	print("level: ", level)
+	# print("level: ", level)
 	#coolDownTimer.stop()
 	match level:
 		1:
@@ -65,7 +65,7 @@ func spawn_disc(atk):
 	var available_attack_time = attackTimer.wait_time
 	var available_cooldown_time = coolDownTimer.wait_time
 	var tween = create_tween()
-	print(attack_size, " ", available_attack_time)
+	# print(attack_size, " ", available_attack_time)
 	if atk:
 		tween.tween_property(self, "scale", Vector2(attack_size, attack_size), available_attack_time / 10).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 		tween.play()
