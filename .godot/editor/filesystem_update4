@@ -1,5 +1,5 @@
-res://TitleScreen/menu.gd
-res://TitleScreen/menu.tscn
+res://TitleScreen/weapon_menu.gd
+res://TitleScreen/weapon_menu.tscn
 res://Objects/orb.tscn
 res://Objects/experience_gem.tscn
 res://Utility/upgrade_db.tscn
@@ -9,15 +9,9 @@ res://Utility/enemy_spawner.tscn
 res://World/world.tscn
 res://Enemy/enemy_kolbold_weak.tscn
 res://Particles/dust.tscn
-res://Utility/basic_button.gd
-res://Player/player.gd
-res://TitleScreen/weapon_menu.tscn
-res://Utility/item_option.gd
+res://TitleScreen/menu.tscn
 res://Utility/item_option.tscn
-res://Utility/upgrade_db.gd
-res://TitleScreen/weapon_selection.gd
 res://TitleScreen/weapon_selection.tscn
-res://TitleScreen/weapon_menu.gd
-res://ChosenWeapon.gd
-res://TitleScreen/chosen_weapon.gd
 res://TitleScreen/chosen_weapon.tscn
+res://TitleScreen/chosen_weapon.gd
+res://TitleScreen/menu.gd

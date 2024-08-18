@@ -6,6 +6,7 @@ extends Control
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var weaponOut = get_tree().get_first_node_in_group("chosen_weapon")
 # @onready var transitionGame: AnimationPlayer = get_node("%TransitionToGame")
+@onready var animPlayer: AnimationPlayer = get_node("%AnimationPlayer")
 
 var level = preload("res://World/world.tscn")
 var chosen_weapon = null
@@ -16,7 +17,7 @@ signal starting_weapon(weapon)
 
 func _ready():
 	connect("starting_weapon", Callable(weaponOut, "get_chosen_weapon"))
-	#labelDescription.text = "Hover over a weapon to see a description"
+	# animPlayer.play_backwards("fade")
 	var weapon_choices = ["icespear1", "javelin1", "tornado1", "disc1", "fireball1"]
 	for weapon_choice in weapon_choices:
 		var displayedWeapon = weaponOptions.instantiate()
@@ -32,4 +33,8 @@ func display_description(item):
 func start_game(weapon):
 	chosen_weapon = weapon
 	emit_signal("starting_weapon", chosen_weapon)
+	animPlayer.play("fade")
+	
+
+func _on_animation_player_animation_finished(anim_name: StringName):
 	get_tree().change_scene_to_packed(level)
