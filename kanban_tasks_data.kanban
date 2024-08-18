@@ -157,7 +157,16 @@
 			"title": "Scene Transitions",
 			"description": "",
 			"category": "fa53b808-bc8d-4ec6-80b3-d963949250d4",
-			"steps": []
+			"steps": [
+				{
+					"details": "Game start and game end",
+					"done": true
+				},
+				{
+					"details": "Weapon Selection\n\nGive a starting weapon choice\n",
+					"done": false
+				}
+			]
 		},
 		{
 			"uuid": "c23b5aa0-b38d-4069-870e-5457e452fe73",

@@ -92,11 +92,19 @@ var experience_level = 1
 var collected_experience = 0
 var maxhp = 80
 var time = 0
+var weapon: Object
+
+#func get_starting_weapon(weapon):
+	#print("entered signal")
+	#if weapon != null:
+		#return weapon
 
 func _ready():
 	dustParticles.emitting = false
 	dustParticles.global_position = global_position + Vector2(0, 10)
-	upgrade_character("fireball1")
+	# upgrade_character("fireball1")
+	var chosen_weapon = WeaponMenu.chosen_weapon
+	upgrade_character(chosen_weapon)
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)

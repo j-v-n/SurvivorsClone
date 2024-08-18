@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://vqqetn6twm6j"]
+
+[ext_resource type="Script" path="res://TitleScreen/weapon_selection.gd" id="1_5cirb"]
+[ext_resource type="Texture2D" uid="uid://cu7sno41q4hq2" path="res://Textures/Items/Weapons/fireball_v1.png" id="1_vcta1"]
+
+[node name="WeaponSelection" type="ColorRect"]
+custom_minimum_size = Vector2(35, 35)
+offset_right = 35.0
+offset_bottom = 35.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_5cirb")
+
+[node name="WeaponIcon" type="TextureRect" parent="."]
+unique_name_in_owner = true
+texture_filter = 1
+layout_mode = 0
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 66.0
+offset_bottom = 65.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_vcta1")
+
+[connection signal="mouse_entered" from="WeaponIcon" to="." method="_on_weapon_icon_mouse_entered"]
+[connection signal="mouse_exited" from="WeaponIcon" to="." method="_on_weapon_icon_mouse_exited"]

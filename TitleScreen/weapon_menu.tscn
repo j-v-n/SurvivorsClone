@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qsr4nc5mkev"]
+
+[ext_resource type="Script" path="res://TitleScreen/weapon_menu.gd" id="1_3m833"]
+[ext_resource type="FontFile" uid="uid://bm3i5odnir43l" path="res://Font/tenderness.otf" id="1_s6ayi"]
+
+[node name="WeaponMenu" type="Control" groups=["menu_weapon_selection"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3m833")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 679.0
+offset_bottom = 384.0
+color = Color(0.788235, 0.392157, 0.47451, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("1_s6ayi")
+theme_override_font_sizes/font_size = 60
+text = "Select your starting weapon!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DisplayWeapons" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 225.0
+offset_top = 151.0
+offset_right = 425.0
+offset_bottom = 191.0
+
+[node name="Weapon_LabelBox" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 228.0
+offset_right = 425.0
+offset_bottom = 285.0
+color = Color(0.00184107, 0.00184107, 0.00184107, 1)
+
+[node name="Label_Description" type="Label" parent="Weapon_LabelBox"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_s6ayi")
+text = "Weapon Description"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

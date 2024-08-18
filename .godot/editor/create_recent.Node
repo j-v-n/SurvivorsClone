@@ -1,4 +1,8 @@
+TextureRect
 ColorRect
+Label
+HBoxContainer
+GridContainer
 AnimationPlayer
 Camera2D
 CPUParticles2D
@@ -9,6 +13,3 @@ CharacterBody2D
 Timer
 AudioStreamPlayer
 Area2D
-Node2D
-Button
-Label

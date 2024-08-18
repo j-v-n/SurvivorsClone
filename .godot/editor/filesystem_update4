@@ -11,3 +11,10 @@ res://Enemy/enemy_kolbold_weak.tscn
 res://Particles/dust.tscn
 res://Utility/basic_button.gd
 res://Player/player.gd
+res://TitleScreen/weapon_menu.tscn
+res://Utility/item_option.gd
+res://Utility/item_option.tscn
+res://Utility/upgrade_db.gd
+res://TitleScreen/weapon_selection.gd
+res://TitleScreen/weapon_selection.tscn
+res://TitleScreen/weapon_menu.gd
