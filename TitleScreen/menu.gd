@@ -1,7 +1,7 @@
 extends Control
 
 @onready var transition: AnimationPlayer = get_node("%Transition")
-var level = preload("res://World/world.tscn")
+var level = preload("res://TitleScreen/weapon_menu.tscn")
 
 
 func _on_button_play_click_end():

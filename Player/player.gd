@@ -102,9 +102,9 @@ var weapon: Object
 func _ready():
 	dustParticles.emitting = false
 	dustParticles.global_position = global_position + Vector2(0, 10)
-	# upgrade_character("fireball1")
-	var chosen_weapon = WeaponMenu.chosen_weapon
-	upgrade_character(chosen_weapon)
+	upgrade_character(ChosenWeapon.weapon_choice)
+	#var chosen_weapon = WeaponMenu.chosen_weapon
+	#upgrade_character(chosen_weapon)
 	attack()
 	set_expbar(experience, calculate_experience_cap())
 	_on_hurt_box_hurt(0, 0, 0)

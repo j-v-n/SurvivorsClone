@@ -18,7 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 UpgradeDb="*res://Utility/upgrade_db.tscn"
-WeaponMenu="*res://TitleScreen/weapon_menu.tscn"
+ChosenWeapon="*res://TitleScreen/chosen_weapon.tscn"
 
 [display]
 

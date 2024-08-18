@@ -1,9 +1,9 @@
-TextureRect
-ColorRect
 Label
+AnimationPlayer
+ColorRect
+TextureRect
 HBoxContainer
 GridContainer
-AnimationPlayer
 Camera2D
 CPUParticles2D
 GPUParticles2D
@@ -12,4 +12,3 @@ Sprite2D
 CharacterBody2D
 Timer
 AudioStreamPlayer
-Area2D

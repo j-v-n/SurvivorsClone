@@ -18,3 +18,6 @@ res://Utility/upgrade_db.gd
 res://TitleScreen/weapon_selection.gd
 res://TitleScreen/weapon_selection.tscn
 res://TitleScreen/weapon_menu.gd
+res://ChosenWeapon.gd
+res://TitleScreen/chosen_weapon.gd
+res://TitleScreen/chosen_weapon.tscn
