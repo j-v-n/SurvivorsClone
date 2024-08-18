@@ -27,6 +27,7 @@ extends CharacterBody2D
 @onready var playerCollision = get_node("%PlayerCollision")
 @onready var grabAreaCollision = get_node("%GrabAreaCollision")
 @onready var dustParticles: CPUParticles2D = get_node("%Dust")
+@onready var transition: AnimationPlayer = get_node("%TransitionToMain")
 #signal
 signal playerDeath
 
@@ -530,4 +531,10 @@ func death():
 
 func _on_button_menu_click_end():
 	get_tree().paused = false
-	var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")
+	transition.play("fade_out")
+	
+
+func _on_transition_to_main_animation_finished(anim_name: StringName):
+	var scene_level = "res://TitleScreen/menu.tscn"
+	get_tree().change_scene_to_file(scene_level)
+	# var _level = get_tree().change_scene_to_file("res://TitleScreen/menu.tscn")

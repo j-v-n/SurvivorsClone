@@ -1,7 +1,8 @@
+ColorRect
+AnimationPlayer
 Camera2D
 CPUParticles2D
 GPUParticles2D
-AnimationPlayer
 CollisionShape2D
 Sprite2D
 CharacterBody2D
@@ -11,5 +12,3 @@ Area2D
 Node2D
 Button
 Label
-ColorRect
-GridContainer

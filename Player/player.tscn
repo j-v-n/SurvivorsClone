@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cmqxl1bbh5aan"]
+[gd_scene load_steps=22 format=3 uid="uid://cmqxl1bbh5aan"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_7od70"]
 [ext_resource type="Texture2D" uid="uid://cn78vqpt15bmy" path="res://Textures/Player/player_sprite.png" id="1_tncmp"]
@@ -29,6 +29,43 @@ radius = 50.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_64qon"]
 radius = 14.21
+
+[sub_resource type="Animation" id="Animation_yxw03"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionToMain/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4a8yn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TransitionToMain/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_28ij2"]
+_data = {
+"RESET": SubResource("Animation_4a8yn"),
+"fade_out": SubResource("Animation_yxw03")
+}
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 motion_mode = 1
@@ -234,6 +271,20 @@ offset_bottom = 230.0
 text = "Menu
 "
 
+[node name="TransitionToMain" type="AnimationPlayer" parent="GUILayer/GUI/DeathPanel"]
+unique_name_in_owner = true
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_28ij2")
+}
+
+[node name="ColorRect" type="ColorRect" parent="GUILayer/GUI/DeathPanel/TransitionToMain"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 662.0
+offset_bottom = 384.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
 [node name="LabelTimer" type="Label" parent="GUILayer/GUI"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -287,6 +338,7 @@ one_shot = true
 [connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
 [connection signal="area_entered" from="CollectArea" to="." method="_on_collect_area_area_entered"]
 [connection signal="click_end" from="GUILayer/GUI/DeathPanel/button_menu" to="." method="_on_button_menu_click_end"]
+[connection signal="animation_finished" from="GUILayer/GUI/DeathPanel/TransitionToMain" to="." method="_on_transition_to_main_animation_finished"]
 [connection signal="timeout" from="InvincibilityTimer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="InvincibilityTimer/InvincibilityCooldown" to="." method="_on_invincibility_cooldown_timeout"]
 
