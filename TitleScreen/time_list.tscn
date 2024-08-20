@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://dg0knse2afjda"]
+
+[ext_resource type="FontFile" uid="uid://bm3i5odnir43l" path="res://Font/tenderness.otf" id="1_1vtas"]
+[ext_resource type="Script" path="res://TitleScreen/time_list.gd" id="1_ahv36"]
+[ext_resource type="PackedScene" uid="uid://lynlxyffijqg" path="res://Utility/basic_button.tscn" id="2_b5erl"]
+
+[node name="Time_List" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ahv36")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 661.0
+offset_bottom = 384.0
+color = Color(0.788235, 0.392157, 0.47451, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 637.0
+offset_bottom = 66.0
+theme_override_fonts/font = ExtResource("1_1vtas")
+theme_override_font_sizes/font_size = 60
+text = "Best Times So Far!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="TimeContainer" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 125.0
+offset_top = 97.0
+offset_right = 530.0
+offset_bottom = 137.0
+
+[node name="back_button" parent="." instance=ExtResource("2_b5erl")]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 320.0
+offset_right = 360.0
+offset_bottom = 350.0
+text = "Back"
+
+[connection signal="click_end" from="back_button" to="." method="_on_back_button_click_end"]

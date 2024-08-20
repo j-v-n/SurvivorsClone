@@ -1,7 +1,8 @@
+VBoxContainer
+Label
+ColorRect
 SaverLoader
 AnimationPlayer
-ColorRect
-Label
 TextureRect
 HBoxContainer
 GridContainer
@@ -12,4 +13,3 @@ CollisionShape2D
 Sprite2D
 CharacterBody2D
 Timer
-AudioStreamPlayer

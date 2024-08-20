@@ -103,12 +103,20 @@ offset_right = 360.0
 offset_bottom = 280.0
 text = "Play"
 
+[node name="button_times" parent="." instance=ExtResource("2_lqhg1")]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 285.0
+offset_right = 365.0
+offset_bottom = 315.0
+text = "Best Times"
+
 [node name="button_quit" parent="." instance=ExtResource("2_lqhg1")]
 layout_mode = 0
 offset_left = 280.0
-offset_top = 290.0
+offset_top = 320.0
 offset_right = 360.0
-offset_bottom = 320.0
+offset_bottom = 350.0
 text = "Quit"
 
 [node name="Transition" type="AnimationPlayer" parent="."]
@@ -125,5 +133,6 @@ mouse_filter = 2
 color = Color(0.00351917, 0.00351917, 0.00351917, 1)
 
 [connection signal="click_end" from="button_play" to="." method="_on_button_play_click_end"]
+[connection signal="click_end" from="button_times" to="." method="_on_button_times_click_end"]
 [connection signal="click_end" from="button_quit" to="." method="_on_button_quit_click_end"]
 [connection signal="animation_finished" from="Transition" to="." method="_on_transition_animation_finished"]
