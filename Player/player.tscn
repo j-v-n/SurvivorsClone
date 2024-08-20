@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cmqxl1bbh5aan"]
+[gd_scene load_steps=23 format=3 uid="uid://cmqxl1bbh5aan"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_7od70"]
 [ext_resource type="Texture2D" uid="uid://cn78vqpt15bmy" path="res://Textures/Player/player_sprite.png" id="1_tncmp"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cf5v715jerucv" path="res://Audio/SoundEffect/Lose.ogg" id="11_kj44m"]
 [ext_resource type="PackedScene" uid="uid://lynlxyffijqg" path="res://Utility/basic_button.tscn" id="12_p667h"]
 [ext_resource type="PackedScene" uid="uid://brouxgg7igg7n" path="res://Particles/dust.tscn" id="13_4wif5"]
+[ext_resource type="Script" path="res://Saving/saver_loader.gd" id="14_5hw67"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1byp1"]
 radius = 4.0
@@ -325,6 +326,10 @@ one_shot = true
 unique_name_in_owner = true
 wait_time = 15.0
 one_shot = true
+
+[node name="SaverLoader" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("14_5hw67")
 
 [connection signal="hurt" from="HurtBox" to="." method="_on_hurt_box_hurt"]
 [connection signal="timeout" from="Attack/IceSpearTimer" to="." method="_on_ice_spear_timer_timeout"]

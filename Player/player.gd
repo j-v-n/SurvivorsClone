@@ -28,7 +28,8 @@ extends CharacterBody2D
 @onready var grabAreaCollision = get_node("%GrabAreaCollision")
 @onready var dustParticles: CPUParticles2D = get_node("%Dust")
 @onready var transition: AnimationPlayer = get_node("%TransitionToMain")
-#signal
+@onready var _saver_loader: SaverLoader = get_node("%SaverLoader")
+
 signal playerDeath
 
 #Attacks
@@ -523,8 +524,13 @@ func adjust_gui_collection(upgrade):
 			
 func death():
 	deathPanel.visible = true
+	
 	emit_signal("playerDeath")
+
+	_saver_loader.save_time()
+
 	get_tree().paused = true
+
 	var tween = deathPanel.create_tween()
 	tween.tween_property(deathPanel, "position", Vector2(220, 50), 3.0).set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_OUT)
 	tween.play()
