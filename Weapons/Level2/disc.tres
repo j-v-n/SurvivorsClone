@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://be46lwlnjgsur"]
+
+[ext_resource type="Texture2D" uid="uid://dxn35rgn3vloq" path="res://Textures/Items/Weapons/spin_disc_v1.png" id="1_da2sk"]
+[ext_resource type="PackedScene" uid="uid://bbxvrgxqf1sl8" path="res://Player/Attack/spinning_disc.tscn" id="2_ghyu5"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_l8jh7"]
+
+[resource]
+script = ExtResource("3_l8jh7")
+name = "disc2"
+displayname = "Disc"
+description = "Damage increases by 25%"
+scene = ExtResource("2_ghyu5")
+icon = ExtResource("1_da2sk")
+level = 2
+hp = 999
+speed = 0
+damage = 25
+knockback_amount = 100
+base_attack_size = 2.0
+base_attack_speed = 5.0
+paths = 0

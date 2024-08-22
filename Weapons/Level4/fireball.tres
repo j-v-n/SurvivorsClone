@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bvjhubqk8moxd"]
+
+[ext_resource type="Texture2D" uid="uid://cu7sno41q4hq2" path="res://Textures/Items/Weapons/fireball_v1.png" id="1_q675p"]
+[ext_resource type="PackedScene" uid="uid://c48n7odegnr83" path="res://Player/Attack/fire_ball.tscn" id="2_r3vhc"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_8trce"]
+
+[resource]
+script = ExtResource("3_8trce")
+name = "fireball4"
+displayname = "Fireball"
+description = "Increases speed of fireballs by 33%"
+scene = ExtResource("2_r3vhc")
+icon = ExtResource("1_q675p")
+level = 4
+hp = 5
+speed = -100
+damage = 25
+knockback_amount = -125
+base_attack_size = 1.0
+base_attack_speed = 5.0
+paths = 0

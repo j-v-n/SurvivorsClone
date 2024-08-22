@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://6qsr4nc5mkev"]
+[gd_scene load_steps=7 format=3 uid="uid://6qsr4nc5mkev"]
 
 [ext_resource type="Script" path="res://TitleScreen/weapon_menu.gd" id="1_3m833"]
 [ext_resource type="FontFile" uid="uid://bm3i5odnir43l" path="res://Font/tenderness.otf" id="1_s6ayi"]
+[ext_resource type="Resource" uid="uid://babn4upvfmg53" path="res://Weapons/level_one_weapons.tres" id="2_i0t2u"]
 
 [sub_resource type="Animation" id="Animation_xlc0i"]
 length = 0.001
@@ -48,6 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3m833")
+level1_weaponChoices = ExtResource("2_i0t2u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

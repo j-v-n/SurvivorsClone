@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bls6w60a58rfh"]
+
+[ext_resource type="Texture2D" uid="uid://dogjllbrewsju" path="res://Textures/Items/Weapons/javelin_3_new.png" id="1_2t3nu"]
+[ext_resource type="PackedScene" uid="uid://b8i8qx860ge75" path="res://Player/Attack/javelin.tscn" id="2_krs57"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_w3gm4"]
+
+[resource]
+script = ExtResource("3_w3gm4")
+name = "javelin1"
+displayname = "Javelin"
+description = "A magical javelin will follow you attacking enemies in a straight line"
+scene = ExtResource("2_krs57")
+icon = ExtResource("1_2t3nu")
+level = 2
+hp = 999
+speed = 200
+damage = 10
+knockback_amount = 100
+base_attack_size = 1.0
+base_attack_speed = 5.0
+paths = 1

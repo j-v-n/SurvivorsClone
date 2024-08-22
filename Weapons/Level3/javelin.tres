@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://fb033br0f0p"]
+
+[ext_resource type="Texture2D" uid="uid://dogjllbrewsju" path="res://Textures/Items/Weapons/javelin_3_new.png" id="1_c7iur"]
+[ext_resource type="PackedScene" uid="uid://b8i8qx860ge75" path="res://Player/Attack/javelin.tscn" id="2_vfrxy"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_h3lro"]
+
+[resource]
+script = ExtResource("3_h3lro")
+name = "javelin2"
+displayname = "Javelin"
+description = "The javelin will now attack an additional enemy per attack"
+scene = ExtResource("2_vfrxy")
+icon = ExtResource("1_c7iur")
+level = 2
+hp = 999
+speed = 200
+damage = 10
+knockback_amount = 100
+base_attack_size = 1.0
+base_attack_speed = 5.0
+paths = 2

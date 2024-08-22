@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://i2lp7jecmcsa"]
+
+[ext_resource type="Texture2D" uid="uid://dxn35rgn3vloq" path="res://Textures/Items/Weapons/spin_disc_v1.png" id="1_flbfy"]
+[ext_resource type="PackedScene" uid="uid://bbxvrgxqf1sl8" path="res://Player/Attack/spinning_disc.tscn" id="2_c2rq5"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_sl2oh"]
+
+[resource]
+script = ExtResource("3_sl2oh")
+name = "disc4"
+displayname = "Disc"
+description = "Additional knockback increase by 5%"
+scene = ExtResource("2_c2rq5")
+icon = ExtResource("1_flbfy")
+level = 4
+hp = 999
+speed = 0
+damage = 30
+knockback_amount = 126
+base_attack_size = 2.0
+base_attack_speed = 5.0
+paths = 0

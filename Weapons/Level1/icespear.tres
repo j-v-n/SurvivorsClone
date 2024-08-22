@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://6nnyb2ofa04j"]
+
+[ext_resource type="Texture2D" uid="uid://jbu6bb5mv81y" path="res://Textures/Items/Weapons/ice_spear.png" id="1_14a8s"]
+[ext_resource type="PackedScene" uid="uid://bhtf15hd5d64s" path="res://Player/Attack/ice_spear.tscn" id="2_ag34r"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_t24k7"]
+
+[resource]
+script = ExtResource("3_t24k7")
+name = "icespear1"
+displayname = "Ice Spear"
+description = "A spear of ice is thrown at a random enemy"
+scene = ExtResource("2_ag34r")
+icon = ExtResource("1_14a8s")
+level = 1
+hp = 1
+speed = 100
+damage = 5
+knockback_amount = 100
+base_attack_size = 1.0
+base_attack_speed = 0.0
+paths = 0

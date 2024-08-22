@@ -103,7 +103,8 @@ var weapon: Object
 func _ready():
 	dustParticles.emitting = false
 	dustParticles.global_position = global_position + Vector2(0, 10)
-	upgrade_character(ChosenWeapon.weapon_choice)
+	#upgrade_character(ChosenWeapon.weapon_choice)
+	upgrade_character("icespear1")
 	#var chosen_weapon = WeaponMenu.chosen_weapon
 	#upgrade_character(chosen_weapon)
 	attack()

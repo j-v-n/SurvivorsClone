@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://bkwnua1e18dfp"]
+
+[ext_resource type="Texture2D" uid="uid://jbu6bb5mv81y" path="res://Textures/Items/Weapons/ice_spear.png" id="1_c1ma4"]
+[ext_resource type="PackedScene" uid="uid://bhtf15hd5d64s" path="res://Player/Attack/ice_spear.tscn" id="2_30k7q"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_6urpu"]
+
+[resource]
+script = ExtResource("3_6urpu")
+name = "icespear4"
+displayname = "Ice Spear"
+description = "Ice spear now passes through another enemy and do +3 damage"
+scene = ExtResource("2_30k7q")
+icon = ExtResource("1_c1ma4")
+level = 4
+hp = 2
+speed = 100
+damage = 8
+knockback_amount = 100
+base_attack_size = 1.0
+base_attack_speed = 0.0
+paths = 0

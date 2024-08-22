@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://dd6tw1dypjh8u"]
+
+[ext_resource type="Texture2D" uid="uid://dwgim8hkqquq3" path="res://Textures/Items/Weapons/tornado.png" id="1_qgof0"]
+[ext_resource type="PackedScene" uid="uid://dowvg4tw434t2" path="res://Player/Attack/tornado.tscn" id="2_fm3co"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_bboew"]
+
+[resource]
+script = ExtResource("3_bboew")
+name = "tornado4"
+displayname = "Tornado"
+description = "Tornado cooldown is reduced by 0.5 s"
+scene = ExtResource("2_fm3co")
+icon = ExtResource("1_qgof0")
+level = 4
+hp = 999
+speed = 100
+damage = 5
+knockback_amount = 125
+base_attack_size = 1.0
+base_attack_speed = 0.0
+paths = 0

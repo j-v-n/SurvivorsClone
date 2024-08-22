@@ -1,3 +1,7 @@
+res://Weapons
+res://Weapons/Level1
+res://
+res://World
 res://TitleScreen
 res://Particles
 res://Objects
@@ -7,4 +11,3 @@ res://Utility
 res://Player/GUI
 res://Enemy
 res://Player
-res://World

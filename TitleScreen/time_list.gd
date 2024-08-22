@@ -20,6 +20,7 @@ func _ready():
 			newLabel.vertical_alignment = 1
 			newLabel.set("theme_override_fonts/font", tenderness_font)
 			timeContainer.add_child(newLabel)
+	# TODO: Pad with strings when there is no value to be read
 
 
 func times_to_display():

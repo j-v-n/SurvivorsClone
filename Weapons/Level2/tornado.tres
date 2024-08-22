@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=4 format=3 uid="uid://dkoykhfwohl7m"]
+
+[ext_resource type="Texture2D" uid="uid://dwgim8hkqquq3" path="res://Textures/Items/Weapons/tornado.png" id="1_04xb7"]
+[ext_resource type="PackedScene" uid="uid://dowvg4tw434t2" path="res://Player/Attack/tornado.tscn" id="2_v7xno"]
+[ext_resource type="Script" path="res://Weapons/weapons.gd" id="3_mnfsl"]
+
+[resource]
+script = ExtResource("3_mnfsl")
+name = "tornado2"
+displayname = "Tornado"
+description = "An additional tornado is created"
+scene = ExtResource("2_v7xno")
+icon = ExtResource("1_04xb7")
+level = 2
+hp = 999
+speed = 100
+damage = 5
+knockback_amount = 100
+base_attack_size = 1.0
+base_attack_speed = 0.0
+paths = 0

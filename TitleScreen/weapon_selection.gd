@@ -4,7 +4,7 @@ extends ColorRect
 @onready var weapon_menu = get_tree().get_first_node_in_group("menu_weapon_selection")
 
 var mouse_over = false
-var item = null
+var item: Weapon
 
 signal hovered_weapon(weapon)
 signal selected_weapon(weapon)
@@ -12,7 +12,8 @@ signal selected_weapon(weapon)
 func _ready():
     connect("hovered_weapon", Callable(weapon_menu, "display_description"))
     connect("selected_weapon", Callable(weapon_menu, "start_game"))
-    weaponIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+    # weaponIcon.texture = load(UpgradeDb.UPGRADES[item]["icon"])
+    weaponIcon.texture = item.icon
 
 func _input(event):
     if event.is_action("click"):

@@ -7,6 +7,8 @@ extends Control
 @onready var weaponOut = get_tree().get_first_node_in_group("chosen_weapon")
 # @onready var transitionGame: AnimationPlayer = get_node("%TransitionToGame")
 @onready var animPlayer: AnimationPlayer = get_node("%AnimationPlayer")
+@export var level1_weaponChoices: ResourceGroup
+var _weapon_choices: Array[Weapon] = []
 
 var level = preload("res://World/world.tscn")
 var chosen_weapon = null
@@ -18,19 +20,20 @@ signal starting_weapon(weapon)
 func _ready():
 	connect("starting_weapon", Callable(weaponOut, "get_chosen_weapon"))
 	# animPlayer.play_backwards("fade")
-	var weapon_choices = ["icespear1", "javelin1", "tornado1", "disc1", "fireball1"]
-	for weapon_choice in weapon_choices:
+	level1_weaponChoices.load_all_into(_weapon_choices)
+
+	for weapon in _weapon_choices:
 		var displayedWeapon = weaponOptions.instantiate()
-		displayedWeapon.item = weapon_choice
+		displayedWeapon.item = weapon
 		displayWeapons.add_child(displayedWeapon)
 
-func display_description(item):
+func display_description(item: Weapon):
 	if item != null:
-		labelDescription.text = UpgradeDb.UPGRADES[item]["details"]
+		labelDescription.text = item.description
 	else:
 		labelDescription.text = "Hover over a weapon to see a description"
 
-func start_game(weapon):
+func start_game(weapon: Weapon):
 	chosen_weapon = weapon
 	emit_signal("starting_weapon", chosen_weapon)
 	animPlayer.play("fade")
